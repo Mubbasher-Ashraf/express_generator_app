@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const CustomMiddleware = require('../middleware/async');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', CustomMiddleware((_, res) => {
   res.send('respond with a resource');
-});
+}));
 
 module.exports = router;
